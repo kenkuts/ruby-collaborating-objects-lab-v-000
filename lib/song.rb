@@ -6,14 +6,8 @@ class Song
   end
 
   def artist_name=(person)
-    musician = Artist.find_or_create_by_name(person)
-    if musician.is_a? Artist
-      self.artist = musician
-      self.artist.add_song(self)
-    else
-      self.artist = musician.join
-      self.artist.add_song(self)
-    end
+    self.artist = Artist.find_or_create_by_name(person)
+    self.artist.add_song(self)
   end
 
   def self.new_by_filename(filename)
