@@ -23,7 +23,7 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-    @@all.include?(name) ? @@all.select { |i| i == name } : self.new(name)
+    @@all.include?(name) ? @@all.select { |i| i.name == name } : self.new(name)
   end
 
   def print_songs
