@@ -6,10 +6,21 @@ class Song
   end
 
   def artist_name=(person)
-    if (self.artist.nil?)
-      self.artist = Artist.new(person)
+    # if (self.artist.nil?)
+    #   self.artist = Artist.find_or_create_by_name(person)
+    #   self.artist.add_song(self)
+    # else
+    #   self.artist.name = person
+    #   self.artist.add_song(self)
+    # end
+
+    musician = Artist.find_or_create_by_name(person)
+    if musician.is_a? Artist
+      self.artist = musician
+      self.artist.add_song(self)
     else
-      self.artist.name = person
+      self.artist.name = musician.join
+      self.artist.add_song(self)
     end
   end
 
