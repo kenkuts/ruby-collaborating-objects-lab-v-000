@@ -11,7 +11,7 @@ class Song
       self.artist = musician
       self.artist.add_song(self)
     else
-      self.artist = Artist.new(musician.join)
+      self.artist = musician.join
       self.artist.add_song(self)
     end
   end
