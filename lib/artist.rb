@@ -23,7 +23,6 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-    binding.pry
     @@all.detect { |i| i.name == name } || self.new(name)
   end
 
