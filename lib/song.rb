@@ -11,8 +11,7 @@ class Song
       self.artist = musician
       self.artist.add_song(self)
     else
-      binding.pry
-      self.artist.name = musician.join
+      self.artist = Artist.new(musician.join)
       self.artist.add_song(self)
     end
   end
